@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woking With Set Interval</title>
+</head>
+<body>
+    <div id="clock"></div>
+    <script>
+        function clock()
+        {
+            let inetrvalId;
+            const ClockNode=document.querySelector('#clock');
+return setInterval(()=>{
+    let date=new Date();
+    let tick=date.toLocaleTimeString();
+    ClockNode.textContent=tick;
+    console.log("clockNode",ClockNode+"\n"+"Date",date+"\n"+"Tick",tick);
+},
+1000);
+
+        }
+        clock();
+    </script>
+</body>
+</html>
