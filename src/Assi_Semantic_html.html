@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8" />
+  <head>
+    <title>Assignment: Tables and Forms</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .forecast {
+        margin: 0;
+        padding: 0.3rem;
+        background-color: #eee;
+      }
+
+      .forecast > h1,
+      .day-forecast {
+        margin: 0.5rem;
+        padding: 0.3rem;
+        font-size: 1.2rem;
+      }
+
+      .day-forecast {
+        background: right/contain content-box border-box no-repeat
+          url("/shared-assets/images/examples/rain.svg") white;
+      }
+
+      .day-forecast > h2,
+      .day-forecast > p {
+        margin: 0.2rem;
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <hgroup>
+        <h1>Working with Semantic Html Web Pages</h1>
+        <h2>Assignment: Tables and Forms</h2>
+        <time datetime="2023-10-01">October 1, 2023</time>
+      </hgroup>
+    </header>
+    <article class="forecast">
+      <h1>Weather forecast for Seattle</h1>
+      <article class="day-forecast">
+        <h2>03 March 2018</h2>
+        <p>Rain.</p>
+      </article>
+      <article class="day-forecast">
+        <h2>04 March 2018</h2>
+        <p>Periods of rain.</p>
+      </article>
+      <article class="day-forecast">
+        <h2>05 March 2018</h2>
+        <p>Heavy rain.</p>
+      </article>
+    </article>
+    <article>
+      <h1>Choosing an Apple</h1>
+      <section>
+        <h2>Introduction</h2>
+        <p>
+          This document provides a guide to help with the important task of
+          choosing the correct Apple.
+        </p>
+      </section>
+
+      <section>
+        <h2>Criteria</h2>
+        <p>
+          There are many different criteria to be considered when choosing an
+          Apple — size, color, firmness, sweetness, tartness...
+        </p>
+      </section>
+    </article>
+  </body>
+</html>
