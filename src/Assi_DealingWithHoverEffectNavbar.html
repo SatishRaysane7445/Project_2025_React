@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <!--internal css -->
+    <title>Dealing With Navbar hover Effect</title>
+    <style>
+      body {
+        background-color: #f4f7f9;
+        margin: 0;
+        padding: 0;
+      }
+      body,
+      h2,
+      a,
+      button {
+        font-family: "Inter", sans-serif;
+      }
+
+      .nav-container {
+        margin-bottom: 40px;
+      }
+      h2 {
+        color: #2c3e50;
+        text-transform: capitalize;
+      }
+      .nav1 {
+        background-color: #0d1117;
+        padding: 10px;
+      }
+      .nav1 ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .nav1 li {
+        /* display: inline;*/
+      }
+      .nav1 a {
+        text-decoration: none;
+        color: #e5e7eb;
+        padding: 5px 15px;
+        font-weight: bold;
+        font-size: large;
+        cursor: default;
+
+        position: relative;
+      }
+      .nav1 a::after {
+        content: ""; /*content: "Menu Items"; */
+        position: absolute;
+        height: 0.2px;
+        width: 0px;
+        bottom: 0px;
+        left: 0%;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+      }
+      .nav1 a:hover::after {
+        width: 100%;
+        transform: scaleX(1);
+        background-color: #3b82f6;
+      }
+      .nav1 .Loginbutton {
+        background-color: aqua;
+        padding: 5px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: default;
+      }
+    </style>
+    <!-- Add in your <head> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="nav-container">
+      <h2>Navigation Bar One</h2>
+      <div class="nav1">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><button class="Loginbutton" type="submit">Login</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="nav-container">
+      <h2>Navigation Bar Two</h2>
+      <div class="nav2">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><button class="Loginbutton" type="submit">Login</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="nav-container">
+      <h2>Navigation Bar Three</h2>
+      <div class="nav3">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><button class="Loginbutton" type="submit">Login</button></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
