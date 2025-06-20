@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Dancing Script", cursive;
+  height: 100%;
+  overflow: hidden;
+}
+
+.mainContainer {
+  background: linear-gradient(45deg, blue, red);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #18112a;
+  height: 100%;
+  position: relative;
+}
+
+.innerContainer {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 400px;
+  z-index: 2;
+}
+
+.logo {
+  width: 80px;
+  object-fit: contain;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="email"] {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 0.9rem;
+  background-color: #8a2be2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 5px 15px;
+}
+
+button:hover {
+  background-color: #7319c7;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
