@@ -1,0 +1,75 @@
+.gallery-container {
+  display: grid;
+  gap: 16px;
+  max-width: 1000px;
+  margin: 20px auto;
+}
+
+/* Styles for the large, featured image's container */
+.featured-image {
+  position: relative; /* Needed for absolute positioning of the image */
+  width: 100%; /* Ensure it takes full width of its grid area */
+  padding-bottom: 40.25%; /* For 16:9 aspect ratio (height is 56.25% of width) */
+  /* padding-bottom: 75%; */ /* For 4:3 aspect ratio */
+  /* padding-bottom: 100%; */ /* For 1:1 (square) aspect ratio */
+  overflow: hidden; /* Crucial to clip if image overflows */
+  border-radius: 8px;
+}
+
+/* Styles for all gallery images (including the featured one) */
+.gallery-img {
+  position: absolute; /* <--- CHANGE THIS: Position absolutely within featured-image */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure it fills its parent's width */
+  height: 100%; /* Ensure it fills its parent's height */
+  object-fit: cover; /* ESSENTIAL: Scales and crops image to fit without distorting aspect ratio */
+  max-width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Thumbnail Grid */
+/* ... (rest of your CSS remains the same) ... */
+.thumbnail-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+/* Thumbnail Item (Wrapper for each small image) */
+.thumbnail-item {
+  width: 100%;
+  padding-bottom: 100%; /* This makes the div square based on its width */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Apply object-fit to images inside the thumbnail items to fill the square */
+.thumbnail-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Basic responsiveness for the thumbnail grid */
+@media (max-width: 768px) {
+  .thumbnail-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  /* Optional: Adjust padding-bottom for featured image on small screens */
+  .featured-image {
+    padding-bottom: 65%; /* Maybe a bit taller than 16:9 on small mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .thumbnail-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}

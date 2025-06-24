@@ -1,0 +1,345 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: #0056b3;
+  margin-bottom: 30px;
+}
+
+h3 {
+  color: #007bff;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+p {
+  text-align: center;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.note {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f0f8ff; /* Alice Blue */
+  border-left: 5px solid #007bff;
+  text-align: left;
+}
+
+section {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.grid-container {
+  display: grid; /* Essential for making it a grid container */
+  border: 2px solid #007bff;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #e9f5ff;
+  min-height: 150px; /* To visualize alignment properties better */
+}
+
+.grid-item {
+  background-color: #87ceeb; /* Sky Blue */
+  border: 1px solid #4682b4; /* Steel Blue */
+  padding: 15px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  display: flex; /* For better centering of text initially */
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box; /* Include padding/border in element's total width/height */
+}
+
+/* Specific styling for small items to demonstrate alignment */
+.small-item {
+  width: 60px;
+  height: 40px;
+  padding: 5px; /* Reduce padding for smaller items */
+}
+
+/* 1. Basic Grid: Explicit Rows and Columns */
+.basic-grid {
+  grid-template-columns: 100px 200px 1fr; /* Fixed, Fixed, Flexible */
+  grid-template-rows: auto 100px; /* Auto height, Fixed height */
+  gap: 10px;
+}
+
+/* 2. Grid Gaps and fr units */
+.grid-gaps-fr {
+  grid-template-columns: 1fr 2fr 1fr; /* Ratios of available space */
+  grid-template-rows: repeat(2, 100px); /* Two rows, each 100px */
+  grid-gap: 20px 10px; /* row-gap column-gap */
+}
+
+/* 3. Item Placement: Line-based and Span */
+.grid-item-placement {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 80px);
+  gap: 10px;
+}
+
+.item-a {
+  grid-column: 1 / 3; /* Starts at line 1, ends at line 3 */
+  grid-row: 1;
+  background-color: #ff6347; /* Tomato */
+}
+
+.item-b {
+  grid-column: 2 / 4;
+  grid-row: 2;
+  background-color: #ffa07a; /* Light Salmon */
+}
+
+.item-c {
+  grid-column: span 2; /* Spans 2 columns from its auto-placement start */
+  grid-row: 1;
+  background-color: #ffd700; /* Gold */
+}
+
+/* 4. Item Placement: Named Grid Areas */
+.grid-named-areas {
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header header"
+    "nav    main   sidebar"
+    "footer footer footer";
+  gap: 15px;
+  min-height: 400px; /* To better visualize the layout */
+}
+
+.header {
+  grid-area: header;
+  background-color: #6a5acd; /* Slate Blue */
+}
+
+.nav {
+  grid-area: nav;
+  background-color: #4682b4; /* Steel Blue */
+}
+
+.main {
+  grid-area: main;
+  background-color: #2e8b57; /* Sea Green */
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #daa520; /* Goldenrod */
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #8b0000; /* Dark Red */
+}
+
+/* 5. Alignment & Justification Properties (Container Level) */
+
+/* 5.1. justify-items */
+.grid-justify-items {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 80px;
+  gap: 10px;
+  justify-items: center; /* Aligns items horizontally in the center of their cells */
+}
+/* Ensure items don't stretch by default to show justify-items effect clearly */
+.grid-justify-items .grid-item {
+  width: 60px; /* Make items smaller than their cell width */
+}
+
+/* 5.2. align-items */
+.grid-align-items {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 80px;
+  gap: 10px;
+  align-items: end; /* Aligns items vertically to the end (bottom) of their cells */
+}
+/* Ensure items don't stretch by default to show align-items effect clearly */
+.grid-align-items .grid-item {
+  height: 40px; /* Make items smaller than their cell height */
+}
+
+/* 5.3. justify-content */
+.grid-justify-content {
+  grid-template-columns: repeat(4, 80px); /* Total grid width 320px */
+  width: 600px; /* Container is wider than the total grid content */
+  grid-auto-rows: 70px;
+  gap: 10px;
+  justify-content: space-evenly; /* Distributes horizontal space evenly between and around tracks */
+  border: 2px dashed #ff4500; /* Orange Red */
+}
+
+/* 5.4. align-content */
+.grid-align-content {
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: repeat(2, 60px); /* Total grid height 120px */
+  height: 300px; /* Container is taller than the total grid content */
+  gap: 10px;
+  align-content: space-between; /* Distributes vertical space evenly between rows */
+  border: 2px dashed #8a2be2; /* Blue Violet */
+}
+
+/* 6. Alignment & Justification Properties (Item Level) */
+
+/* 6.1. justify-self */
+.grid-justify-self {
+  grid-template-columns: repeat(4, 1fr); /* Equal width columns */
+  grid-template-rows: 80px;
+  gap: 10px;
+}
+.grid-justify-self .grid-item {
+  width: 60px; /* Make items smaller than their cell to see alignment */
+  height: 60px;
+}
+.grid-justify-self .item-start {
+  justify-self: start;
+  background-color: #20b2aa;
+} /* Light Sea Green */
+.grid-justify-self .item-center {
+  justify-self: center;
+  background-color: #da70d6;
+} /* Orchid */
+.grid-justify-self .item-end {
+  justify-self: end;
+  background-color: #6a5acd;
+} /* Slate Blue */
+.grid-justify-self .item-stretch {
+  justify-self: stretch; /* Default behavior, item expands to fill width */
+  width: auto; /* Ensure it stretches */
+  background-color: #b0c4de; /* Light Steel Blue */
+}
+
+/* 6.2. align-self */
+.grid-align-self {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 100px; /* Tall enough rows to see vertical alignment */
+  gap: 10px;
+}
+.grid-align-self .grid-item {
+  width: 80px;
+  height: 50px; /* Make items smaller than their cell to see alignment */
+}
+.grid-align-self .item-start {
+  align-self: start;
+  background-color: #20b2aa;
+}
+.grid-align-self .item-center {
+  align-self: center;
+  background-color: #da70d6;
+}
+.grid-align-self .item-end {
+  align-self: end;
+  background-color: #6a5acd;
+}
+.grid-align-self .item-stretch {
+  align-self: stretch; /* Default behavior, item expands to fill height */
+  height: auto; /* Ensure it stretches */
+  background-color: #b0c4de;
+}
+
+/* 7. Nested Grids */
+.parent-grid-for-nesting {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto; /* Two rows for demonstration */
+  gap: 20px;
+}
+
+.parent-item-2 {
+  grid-column: 2 / span 2; /* Span two columns in the parent grid */
+  background-color: #add8e6; /* Light Blue */
+  padding: 15px; /* Add padding to make space for inner grid */
+  display: flex; /* Flex is used to center the nested grid content */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+}
+
+.nested-grid-container {
+  display: grid; /* This makes it a grid container itself */
+  grid-template-columns: 1fr 1fr; /* Two equal columns within this nested grid */
+  gap: 5px;
+  margin-top: 10px;
+  width: 90%; /* Take up most of the parent item's width */
+  border: 1px dashed #4682b4; /* Dashed border for nested grid */
+  background-color: #f0f8ff; /* Alice Blue */
+  padding: 5px;
+}
+
+.nested-grid-item {
+  background-color: #90ee90; /* Light Green */
+  border: 1px solid #3cb371; /* Medium Sea Green */
+  padding: 8px;
+  font-size: 0.9em;
+  color: #333;
+}
+
+/* 8. Implicit Grid and grid-auto-flow */
+.implicit-grid {
+  grid-template-columns: repeat(3, 1fr); /* Explicitly define 3 columns */
+  grid-auto-rows: 70px; /* Height for implicitly created rows */
+  grid-auto-flow: row; /* Default: items flow row by row */
+  gap: 10px;
+}
+
+/* Change flow to column to see difference (uncomment to try) */
+/*
+.implicit-grid-column-flow {
+    grid-template-rows: repeat(3, 1fr);
+    grid-auto-columns: 70px;
+    grid-auto-flow: column;
+}
+*/
+
+/* 9. repeat() and minmax() functions */
+.repeat-minmax {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-auto-rows: 80px;
+  gap: 10px;
+}
+
+/* 10. Responsive Grid with Media Queries */
+.responsive-grid {
+  grid-template-columns: repeat(
+    6,
+    1fr
+  ); /* Default: 6 columns on large screens */
+  gap: 10px;
+}
+
+/* For tablets and smaller desktops */
+@media (max-width: 992px) {
+  .responsive-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  }
+}
+
+/* Even smaller mobiles */
+@media (max-width: 480px) {
+  .responsive-grid {
+    grid-template-columns: 1fr; /* Single column */
+  }
+}
